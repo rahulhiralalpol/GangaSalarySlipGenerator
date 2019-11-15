@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../core/services";
 import { app } from "electron";
+import { GeneralService } from "../core/services/general/general.service";
 
 @Component({
   selector: "app-home",
@@ -15,7 +16,10 @@ export class HomeComponent implements OnInit {
   fileresult: any;
   isFileSelected: boolean;
 
-  constructor(private electron: ElectronService) {}
+  constructor(
+    private electron: ElectronService,
+    private generalService: GeneralService
+  ) {}
 
   ngOnInit() {}
 
@@ -43,5 +47,9 @@ export class HomeComponent implements OnInit {
       this.selectedFile = this.fileresult;
       this.isFileSelected = true;
     }
+  }
+
+  CreatePDF() {
+    this.generalService.GeneratePDF(this.selectedFile, this.mode);
   }
 }
