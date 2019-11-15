@@ -1,11 +1,11 @@
 {
-  "name": "angular-electron",
-  "version": "6.3.1",
-  "description": "Angular 8 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "salary_slip_generator",
+  "version": "1.0.0",
+  "description": "Salary Slip Generator from Excel Sheet",
+  "homepage": "www.google.com",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Rahul Pol",
+    "email": "rahul.h.pol@gmail.com"
   },
   "keywords": [
     "angular",
