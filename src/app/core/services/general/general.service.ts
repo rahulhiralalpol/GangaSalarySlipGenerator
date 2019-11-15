@@ -3,7 +3,6 @@ import * as XLSX from "xlsx";
 import * as fs from "fs";
 import { pdfKit } from "pdfkit";
 import { SVGtoPDF } from "svg-to-pdfkit";
-import { from } from "rxjs";
 
 @Injectable({
   providedIn: "root"
