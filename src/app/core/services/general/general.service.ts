@@ -1,19 +1,35 @@
 import { Injectable } from "@angular/core";
 import * as XLSX from "xlsx";
-// import * as PDFDocument from "pdfkit";
+import * as fs from "fs";
+import { pdfKit } from "pdfkit";
+import { SVGtoPDF } from "svg-to-pdfkit";
+import { from } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class GeneralService {
-  constructor() {}
+  doc;
+
+  constructor() {
+    this.doc = new pdfkit({
+      size: "A4",
+      margin: 0,
+      info: {
+        Title: "Salary Slip",
+        Author: "Rahul Pol",
+        Subject: "Salary Slip",
+        Keywords: "Salary Slip",
+        Creator: "Ganga Exports"
+      }
+    });
+  }
 
   GeneratePDF(inputExcel, outputPDF) {
     // Import required libraries
-    const PDFDocument = require("pdfkit");
-
-    const fs = require("fs");
-    const SVGtoPDF = require("svg-to-pdfkit");
+    // const PDFDocument = require("pdfkit");
+    // const fs = require("fs");
+    // const SVGtoPDF = require("svg-to-pdfkit");
     // const xlsx = require("xlsx");
 
     // Define workbook from which the data needs to be extracted and parse it to json
@@ -38,7 +54,7 @@ export class GeneralService {
 
     // Create new PDF documents with given options
 
-    const doc = new PDFDocument({
+    /*const doc = new pdfkit({
       size: "A4",
       margin: 0,
       info: {
@@ -48,23 +64,24 @@ export class GeneralService {
         Keywords: "Salary Slip",
         Creator: "Ganga Exports"
       }
-    });
+    });*/
+
+    alert("reached here");
 
     // Write stream to output PDF
-    doc.pipe(fs.createWriteStream("../../../../Test.pdf"));
+    this.doc.pipe(fs.createWriteStream("../../../../Test.pdf"));
 
     // Write data of each row to PDF document
 
     let ypos = 0;
-    let counter = 0;
 
     for (Employee of Employees) {
-      ypos = (counter % 3) * 269.3;
+      ypos = (Employees.indexOf(Employee) % 3) * 269.3;
 
-      SVGtoPDF(doc, svgfile, 391.465, 37.751 + ypos);
-      SVGtoPDF(doc, vertsvg, 35.501, 131.563 + ypos);
+      SVGtoPDF(this.doc, svgfile, 391.465, 37.751 + ypos);
+      SVGtoPDF(this.doc, vertsvg, 35.501, 131.563 + ypos);
 
-      doc
+      this.doc
         .moveTo(24, 16.8 + ypos)
         .lineTo(41, 16.8 + ypos)
         .moveTo(554.2, 16.8 + ypos)
@@ -72,7 +89,7 @@ export class GeneralService {
         .lineWidth(0.2)
         .stroke();
 
-      doc
+      this.doc
         .moveTo(49.11, 37.751 + ypos)
         .lineTo(49.11, 68.932 + ypos)
         .moveTo(49.11, 78.001 + ypos)
@@ -96,20 +113,20 @@ export class GeneralService {
         .lineWidth(0.709)
         .stroke();
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Black.ttf")
         .fontSize(12)
         .text("SALARY SLIP", 55.155, 47.232 + ypos);
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(12)
         .text("for the month of", 134.977, 47.208 + ypos);
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(12)
         .text(Employee.SAL_MONTH, 225.692, 47.232 + ypos); /// Month
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(10)
         .text("Employee Name", 55.678, 78.001 + ypos)
@@ -159,7 +176,7 @@ export class GeneralService {
         .text("Other Deductions", 392.363, 225.972 + ypos)
         .text(":    ₹", 496.022, 225.972 + ypos);
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
         .fontSize(10)
         .text("GROSS SALARY", 55.678, 241.024 + ypos)
@@ -167,12 +184,12 @@ export class GeneralService {
         .text("TOTAL DEDUCTIONS", 392.363, 241.024 + ypos)
         .text(":    ₹", 496.022, 241.024 + ypos);
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(10)
         .text("NET SALARY", 262, 223.5 + ypos, { width: 86, align: "center" });
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(8)
         .text(
@@ -182,9 +199,8 @@ export class GeneralService {
         );
 
       // !Insert Values from DB//
-      // console.log("Id.: " + counter + ", Sr: " + Employee["Sr."] + ", Date: " + Employee.Date + ", Amount: " + Employee.Amount;
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Medium.ttf")
         .fontSize(12)
         .text(Employee.EMP_NAME, 139.5, 77.001 + ypos, {
@@ -193,7 +209,7 @@ export class GeneralService {
           align: "left"
         }); // Employee Name
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
         .fontSize(10)
         .text(Employee.ESIC_NUMBER, 465.5, 78.001 + ypos, {
@@ -285,7 +301,7 @@ export class GeneralService {
           align: "right"
         }); // Other Deductions
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(10)
         .text(numberWithCommas(Employee.TOTAL_EARNINGS), 194, 241.024 + ypos, {
@@ -297,7 +313,7 @@ export class GeneralService {
           align: "right"
         }); // Total Deductions
 
-      doc
+      this.doc
         .font("assets/fonts/Roboto Fonts/Roboto-Black.ttf")
         .fontSize(16)
         .text(
@@ -310,21 +326,19 @@ export class GeneralService {
           }
         ); // Net Salary
 
-      if (counter % 3 === 2) {
-        doc
+      if (Employees.indexOf(Employee) % 3 === 2) {
+        this.doc
           .moveTo(24, 16.8 + 807.9)
           .lineTo(41, 16.8 + 807.9)
           .moveTo(554.2, 16.8 + 807.9)
           .lineTo(571.2, 16.8 + 807.9)
           .lineWidth(0.2)
           .stroke();
-        doc.addPage();
-
-        counter++;
+        this.doc.addPage();
       }
     }
 
-    doc
+    this.doc
       .moveTo(24, 16.8 + ypos + 269.3)
       .lineTo(41, 16.8 + ypos + 269.3)
       .moveTo(554.2, 16.8 + ypos + 269.3)
@@ -332,13 +346,13 @@ export class GeneralService {
       .lineWidth(0.2)
       .stroke();
 
-    doc.end();
+    this.doc.end();
 
     function numberWithCommas(x) {
       x = String(x).toString();
       let afterPoint = "";
-      if (x.counterOf(".") > 0) {
-        afterPoint = x.substring(x.counterOf("."), x.length);
+      if (x.counterof(".") > 0) {
+        afterPoint = x.substring(x.counterof("."), x.length);
         x = Math.floor(x);
         x = x.toString();
         let lastThree = x.substring(x.length - 3);
