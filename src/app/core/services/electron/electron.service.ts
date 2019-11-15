@@ -14,8 +14,8 @@ export class ElectronService {
   webFrame: typeof webFrame;
   remote: typeof remote;
   childProcess: typeof childProcess;
-  fs: typeof fs;
   window: BrowserWindow;
+  fs: typeof fs;
 
   get isElectron() {
     return window && window.process && window.process.type;
@@ -27,6 +27,7 @@ export class ElectronService {
       this.ipcRenderer = window.require("electron").ipcRenderer;
       this.webFrame = window.require("electron").webFrame;
       this.remote = window.require("electron").remote;
+      this.window = window.require("electron").remote.getCurrentWindow();
 
       this.childProcess = window.require("child_process");
       this.fs = window.require("fs");

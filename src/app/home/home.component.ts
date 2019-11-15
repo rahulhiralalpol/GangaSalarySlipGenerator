@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../core/services";
+import { app } from "electron";
 
 @Component({
   selector: "app-home",
