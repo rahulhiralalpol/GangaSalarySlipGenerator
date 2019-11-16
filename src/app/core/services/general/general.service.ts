@@ -52,6 +52,12 @@ export class GeneralService {
 
     let ypos = 0;
 
+    doc.registerFont(
+      "RobotoBold",
+      "//src/assets/fonts/Roboto Fonts/Roboto-Black.ttf",
+      "RobotoBold"
+    );
+
     for (Employee of Employees) {
       ypos = (Employees.indexOf(Employee) % 3) * 269.3;
 
@@ -91,7 +97,7 @@ export class GeneralService {
         .stroke();
 
       doc
-        //.font("./../../../../assets/fonts/Roboto Fonts/Roboto-Black.ttf")
+        //.font("RobotoBold")
         .fontSize(12)
         .text("SALARY SLIP", 55.155, 47.232 + ypos);
 
@@ -186,8 +192,6 @@ export class GeneralService {
           height: 20,
           align: "left"
         }); // Employee Name
-
-      alert("reached here");
 
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
