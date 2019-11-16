@@ -12,12 +12,7 @@ export class GeneralService {
 
   GeneratePDF(inputExcel, outputPDF) {
     // Import required libraries
-    // const PDFDocument = require("pdfkit/js/pdfkit.standalone.js");
-
-    //const PDFDocument = require("pdfkit");
-    // const fs = require("fs");
     // const SVGtoPDF = require("svg-to-pdfkit");
-    // const xlsx = require("xlsx");
 
     // Define workbook from which the data needs to be extracted and parse it to json
     const workbook: XLSX.WorkBook = XLSX.readFile(
@@ -63,8 +58,6 @@ export class GeneralService {
       SVGtoPDF(doc, svgfile, 391.465, 37.751 + ypos);
       SVGtoPDF(doc, vertsvg, 35.501, 131.563 + ypos);
 
-      alert("reached here svgtopdf");
-
       doc
         .moveTo(24, 16.8 + ypos)
         .lineTo(41, 16.8 + ypos)
@@ -97,23 +90,22 @@ export class GeneralService {
         .lineWidth(0.709)
         .stroke();
 
-      alert("reached here created lines");
-
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Black.ttf")
+        //.font("./../../../../assets/fonts/Roboto Fonts/Roboto-Black.ttf")
         .fontSize(12)
         .text("SALARY SLIP", 55.155, 47.232 + ypos);
+
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(12)
         .text("for the month of", 134.977, 47.208 + ypos);
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(12)
         .text(Employee.SAL_MONTH, 225.692, 47.232 + ypos); /// Month
 
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(10)
         .text("Employee Name", 55.678, 78.001 + ypos)
         .text(":", 131.722, 78.001 + ypos)
@@ -163,7 +155,7 @@ export class GeneralService {
         .text(":    ₹", 496.022, 225.972 + ypos);
 
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
         .fontSize(10)
         .text("GROSS SALARY", 55.678, 241.024 + ypos)
         .text(":    ₹", 170.659, 241.024 + ypos)
@@ -171,12 +163,12 @@ export class GeneralService {
         .text(":    ₹", 496.022, 241.024 + ypos);
 
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(10)
         .text("NET SALARY", 262, 223.5 + ypos, { width: 86, align: "center" });
 
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(8)
         .text(
           "This is a computer generated Salary Slip and does not require a Signature.",
@@ -187,7 +179,7 @@ export class GeneralService {
       // !Insert Values from DB//
 
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Medium.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Medium.ttf")
         .fontSize(12)
         .text(Employee.EMP_NAME, 139.5, 77.001 + ypos, {
           width: 241,
@@ -195,8 +187,10 @@ export class GeneralService {
           align: "left"
         }); // Employee Name
 
+      alert("reached here");
+
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
         .fontSize(10)
         .text(Employee.ESIC_NUMBER, 465.5, 78.001 + ypos, {
           width: 96.8,
@@ -218,99 +212,94 @@ export class GeneralService {
           width: 96.8,
           align: "left"
         }) // Department
-        .text(numberWithCommas(Employee.PAY_BASIC), 194, 129.409 + ypos, {
+        .text(Employee.PAY_BASIC, 194, 129.409 + ypos, {
           width: 52,
           align: "right"
         }) // Basic
-        .text(numberWithCommas(Employee.PAY_HRA), 194, 141.659 + ypos, {
+        .text(Employee.PAY_HRA, 194, 141.659 + ypos, {
           width: 52,
           align: "right"
         }) // H.R.A.
-        .text(numberWithCommas(Employee.PAY_CON), 194, 153.426 + ypos, {
+        .text(Employee.PAY_CON, 194, 153.426 + ypos, {
           width: 52,
           align: "right"
         }) // Conveyance Allowance
-        .text(numberWithCommas(Employee.PAY_EDU), 194, 165.583 + ypos, {
+        .text(Employee.PAY_EDU, 194, 165.583 + ypos, {
           width: 52,
           align: "right"
         }) // Education Allowance
-        .text(numberWithCommas(Employee.PAY_BONUS), 194, 178.131 + ypos, {
+        .text(Employee.PAY_BONUS, 194, 178.131 + ypos, {
           width: 52,
           align: "right"
         }) // Bonus
-        .text(numberWithCommas(Employee.PAY_LEAVE), 194, 190.289 + ypos, {
+        .text(Employee.PAY_LEAVE, 194, 190.289 + ypos, {
           width: 52,
           align: "right"
         }) // Leave
-        .text(numberWithCommas(Employee.PERF_ALW), 194, 201.953 + ypos, {
+        .text(Employee.PERF_ALW, 194, 201.953 + ypos, {
           width: 52,
           align: "right"
         }) // Performance Allowance
-        .text(numberWithCommas(Employee.OTHER_ALW), 194, 214.409 + ypos, {
+        .text(Employee.OTHER_ALW, 194, 214.409 + ypos, {
           width: 52,
           align: "right"
         }) // Other Allowance
-        .text(numberWithCommas(Employee.PF), 520, 129.409 + ypos, {
+        .text(Employee.PF, 520, 129.409 + ypos, {
           width: 52,
           align: "right"
         }) // Provident Fund
-        .text(numberWithCommas(Employee.ESIC), 520, 141.659 + ypos, {
+        .text(Employee.ESIC, 520, 141.659 + ypos, {
           width: 52,
           align: "right"
         }) // E.S.I.C.
-        .text(numberWithCommas(Employee.PT), 520, 153.426 + ypos, {
+        .text(Employee.PT, 520, 153.426 + ypos, {
           width: 52,
           align: "right"
         }) // Professional Tax
-        .text(numberWithCommas(Employee.LWF), 520, 165.583 + ypos, {
+        .text(Employee.LWF, 520, 165.583 + ypos, {
           width: 52,
           align: "right"
         }) // L.W.F.
-        .text(numberWithCommas(Employee.TDS), 520, 178.131 + ypos, {
+        .text(Employee.TDS, 520, 178.131 + ypos, {
           width: 52,
           align: "right"
         }) // T.D.S.
-        .text(numberWithCommas(Employee.CASH_ADV), 520, 190.289 + ypos, {
+        .text(Employee.CASH_ADV, 520, 190.289 + ypos, {
           width: 52,
           align: "right"
         }) // Cash Advance
-        .text(numberWithCommas(Employee.CHEQUE), 520, 201.953 + ypos, {
+        .text(Employee.CHEQUE, 520, 201.953 + ypos, {
           width: 52,
           align: "right"
         }) // Cheque Advance
-        .text(numberWithCommas(Employee.LOAN), 520, 214.409 + ypos, {
+        .text(Employee.LOAN, 520, 214.409 + ypos, {
           width: 52,
           align: "right"
         }) // Loan
-        .text(numberWithCommas(Employee.OTHER_DED), 520, 225.972 + ypos, {
+        .text(Employee.OTHER_DED, 520, 225.972 + ypos, {
           width: 52,
           align: "right"
         }); // Other Deductions
 
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(10)
-        .text(numberWithCommas(Employee.TOTAL_EARNINGS), 194, 241.024 + ypos, {
+        .text(Employee.TOTAL_EARNINGS, 194, 241.024 + ypos, {
           width: 52,
           align: "right"
         }) // Gross Salary
-        .text(numberWithCommas(Employee.TOTAL_DED), 520, 241.024 + ypos, {
+        .text(Employee.TOTAL_DED, 520, 241.024 + ypos, {
           width: 52,
           align: "right"
         }); // Total Deductions
 
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Black.ttf")
+        //.font("assets/fonts/Roboto Fonts/Roboto-Black.ttf")
         .fontSize(16)
-        .text(
-          "₹ " + numberWithCommas(Employee.NET_PAYMENT),
-          262,
-          235.609 + ypos,
-          {
-            width: 86,
-            align: "center"
-          }
-        ); // Net Salary
+        .text("₹ " + Employee.NET_PAYMENT, 262, 235.609 + ypos, {
+          width: 86,
+          align: "center"
+        }); // Net Salary
 
       if (Employees.indexOf(Employee) % 3 === 2) {
         doc
@@ -334,8 +323,8 @@ export class GeneralService {
 
     doc.end();
 
-    function numberWithCommas(x) {
-      x = String(x).toString();
+    function nmxxxx(x) {
+      //x = String(x).toString();
       let afterPoint = "";
       if (x.counterof(".") > 0) {
         afterPoint = x.substring(x.counterof("."), x.length);
@@ -345,12 +334,12 @@ export class GeneralService {
         const otherNumbers = x.substring(0, x.length - 3);
         if (otherNumbers !== "") {
           lastThree = "," + lastThree;
+          return (
+            otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
+            lastThree +
+            afterPoint
+          );
         }
-        return (
-          otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
-          lastThree +
-          afterPoint
-        );
       }
     }
   }
