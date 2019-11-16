@@ -12,7 +12,6 @@ export class GeneralService {
 
   GeneratePDF(inputExcel, outputPDF) {
     // Import required libraries
-    // const SVGtoPDF = require("svg-to-pdfkit");
 
     // Define workbook from which the data needs to be extracted and parse it to json
     const workbook: XLSX.WorkBook = XLSX.readFile(
@@ -47,15 +46,15 @@ export class GeneralService {
     });
 
     // Write stream to output PDF
-    doc.pipe(fs.createWriteStream("D:/Test.pdf"));
-    // Write data of each row to PDF document
+    doc.pipe(fs.createWriteStream("D:/test.pdf"));
+    //doc.pipe(fs.createWriteStream(outputPDF));
 
+    // Write data of each row to PDF document
     let ypos = 0;
 
     doc.registerFont(
       "RobotoBold",
-      "//src/assets/fonts/Roboto Fonts/Roboto-Black.ttf",
-      "RobotoBold"
+      "G:/GangaSalarySlipGenerator/src/assets/fonts/Roboto/Roboto-Bold.ttf"
     );
 
     for (Employee of Employees) {
@@ -97,9 +96,11 @@ export class GeneralService {
         .stroke();
 
       doc
-        //.font("RobotoBold")
+        .font("RobotoBold")
         .fontSize(12)
         .text("SALARY SLIP", 55.155, 47.232 + ypos);
+
+      alert("done");
 
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
