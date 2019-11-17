@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import * as XLSX from "xlsx";
 import * as fs from "fs";
 import * as PDFDocument from "pdfkit/js/pdfkit.standalone.js";
-// import * as PDFDocument from "pdfkit-browserify";
 import * as SVGtoPDF from "svg-to-pdfkit";
 // import * as blobStream from "blob-stream";
 
@@ -13,8 +12,6 @@ export class GeneralService {
   constructor() {}
 
   GeneratePDF(inputExcel) {
-    // Import required libraries
-
     // Define workbook from which the data needs to be extracted and parse it to json
     const workbook: XLSX.WorkBook = XLSX.readFile(
       inputExcel
