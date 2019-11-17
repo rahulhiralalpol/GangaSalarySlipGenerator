@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import * as XLSX from "xlsx";
 import * as fs from "fs";
 import * as PDFDocument from "pdfkit/js/pdfkit.standalone.js";
-//import * as PDFDocument from "pdfkit-browserify";
+// import * as PDFDocument from "pdfkit-browserify";
 import * as SVGtoPDF from "svg-to-pdfkit";
 // import * as blobStream from "blob-stream";
 
@@ -92,7 +92,7 @@ export class GeneralService {
         .lineWidth(0.709)
         .stroke();
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
+        .font("Helvetica")
         .fontSize(12)
         .text("SALARY SLIP", 55.155, 47.232 + ypos);
       alert("reached");
