@@ -89,10 +89,10 @@ export class GeneralService {
         .lineWidth(0.709)
         .stroke();
       doc
-        .font("Helvetica")
+        .font("assets/fonts/Roboto Fonts/Roboto-Black.ttf")
         .fontSize(12)
         .text("SALARY SLIP", 55.155, 47.232 + ypos);
-      // alert("reached");
+      alert("reached");
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(12)
