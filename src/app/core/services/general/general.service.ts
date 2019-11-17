@@ -3,6 +3,7 @@ import * as XLSX from "xlsx";
 import * as fs from "fs";
 import * as PDFDocument from "pdfkit/js/pdfkit.standalone.js";
 import * as SVGtoPDF from "svg-to-pdfkit";
+// import * as blobStream from "blob-stream";
 
 @Injectable({
   providedIn: "root"
@@ -10,7 +11,7 @@ import * as SVGtoPDF from "svg-to-pdfkit";
 export class GeneralService {
   constructor() {}
 
-  GeneratePDF(inputExcel, outputPDF) {
+  GeneratePDF(inputExcel) {
     // Import required libraries
 
     // Define workbook from which the data needs to be extracted and parse it to json
@@ -46,16 +47,12 @@ export class GeneralService {
     });
 
     // Write stream to output PDF
-    doc.pipe(fs.createWriteStream("D:/test.pdf"));
-    //doc.pipe(fs.createWriteStream(outputPDF));
+    doc.pipe(fs.createWriteStream("E:/Test.pdf"));
+    // doc.pipe(fs.createWriteStream(outputPDF));
+    // const stream = doc.pipe(blobStream());
 
     // Write data of each row to PDF document
     let ypos = 0;
-
-    doc.registerFont(
-      "RobotoBold",
-      "G:/GangaSalarySlipGenerator/src/assets/fonts/Roboto/Roboto-Bold.ttf"
-    );
 
     for (Employee of Employees) {
       ypos = (Employees.indexOf(Employee) % 3) * 269.3;
@@ -70,7 +67,6 @@ export class GeneralService {
         .lineTo(571.2, 16.8 + ypos)
         .lineWidth(0.2)
         .stroke();
-
       doc
         .moveTo(49.11, 37.751 + ypos)
         .lineTo(49.11, 68.932 + ypos)
@@ -94,14 +90,11 @@ export class GeneralService {
         .lineTo(348.094, 250.07 + ypos)
         .lineWidth(0.709)
         .stroke();
-
       doc
-        .font("RobotoBold")
+        .font("Times-Roman")
         .fontSize(12)
         .text("SALARY SLIP", 55.155, 47.232 + ypos);
-
-      alert("done");
-
+      // alert("reached");
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(12)
@@ -110,7 +103,6 @@ export class GeneralService {
         //.font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(12)
         .text(Employee.SAL_MONTH, 225.692, 47.232 + ypos); /// Month
-
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(10)
@@ -160,7 +152,6 @@ export class GeneralService {
         .text(":    ₹", 496.022, 214.213 + ypos)
         .text("Other Deductions", 392.363, 225.972 + ypos)
         .text(":    ₹", 496.022, 225.972 + ypos);
-
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
         .fontSize(10)
@@ -168,12 +159,10 @@ export class GeneralService {
         .text(":    ₹", 170.659, 241.024 + ypos)
         .text("TOTAL DEDUCTIONS", 392.363, 241.024 + ypos)
         .text(":    ₹", 496.022, 241.024 + ypos);
-
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(10)
         .text("NET SALARY", 262, 223.5 + ypos, { width: 86, align: "center" });
-
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Light.ttf")
         .fontSize(8)
@@ -184,7 +173,6 @@ export class GeneralService {
         );
 
       // !Insert Values from DB//
-
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Medium.ttf")
         .fontSize(12)
@@ -193,7 +181,6 @@ export class GeneralService {
           height: 20,
           align: "left"
         }); // Employee Name
-
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Regular.ttf")
         .fontSize(10)
@@ -285,7 +272,6 @@ export class GeneralService {
           width: 52,
           align: "right"
         }); // Other Deductions
-
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Bold.ttf")
         .fontSize(10)
@@ -297,7 +283,6 @@ export class GeneralService {
           width: 52,
           align: "right"
         }); // Total Deductions
-
       doc
         //.font("assets/fonts/Roboto Fonts/Roboto-Black.ttf")
         .fontSize(16)
@@ -317,7 +302,6 @@ export class GeneralService {
         doc.addPage();
       }
     }
-
     doc
       .moveTo(24, 16.8 + ypos + 269.3)
       .lineTo(41, 16.8 + ypos + 269.3)
@@ -325,11 +309,15 @@ export class GeneralService {
       .lineTo(571.2, 16.8 + ypos + 269.3)
       .lineWidth(0.2)
       .stroke();
-
     doc.end();
 
+    /*    stream.on("finish", function () {
+      const url = stream.toBlobURL("application/pdf");
+      FileSaver.saveAs(url, "E:/Test.pdf");
+    });*/
+
     function nmxxxx(x) {
-      //x = String(x).toString();
+      // x = String(x).toString();
       let afterPoint = "";
       if (x.counterof(".") > 0) {
         afterPoint = x.substring(x.counterof("."), x.length);

@@ -50,6 +50,6 @@ export class HomeComponent implements OnInit {
   }
 
   CreatePDF() {
-    this.generalService.GeneratePDF(this.selectedFile, this.mode);
+    this.generalService.GeneratePDF(this.selectedFile);
   }
 }
