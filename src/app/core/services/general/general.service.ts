@@ -44,6 +44,24 @@ export class GeneralService {
       }
     });
 
+    var oReq = new XMLHttpRequest();
+    oReq.open("GET", "assets/fonts/Roboto Fonts/Roboto-Black.ttf", true);
+    oReq.responseType = "arraybuffer";
+    var byteArray = new Uint8Array(oReq.response);
+
+    /*oReq.onload = function(oEvent) {
+      var arrayBuffer = oReq.response; // Note: not oReq.responseText
+      /*if (arrayBuffer) {
+        var byteArray = new Uint8Array(arrayBuffer);
+        for (var i = 0; i < byteArray.byteLength; i++) {
+          // do something with each byte in the array
+        }
+      }
+    };*/
+    doc.registerFont("RobotoBlack", byteArray, "Roboto");
+
+    // oReq.send(null);
+
     // Write stream to output PDF
     doc.pipe(fs.createWriteStream("E:/Test.pdf"));
     // doc.pipe(fs.createWriteStream(outputPDF));
@@ -89,7 +107,7 @@ export class GeneralService {
         .lineWidth(0.709)
         .stroke();
       doc
-        .font("assets/fonts/Roboto Fonts/Roboto-Black.ttf")
+        .font("RobotoBlack")
         .fontSize(12)
         .text("SALARY SLIP", 55.155, 47.232 + ypos);
       alert("reached");
@@ -309,9 +327,8 @@ export class GeneralService {
       .stroke();
     doc.end();
 
-    /*    stream.on("finish", function () {
+    /*stream.on("finish", function() {
       const url = stream.toBlobURL("application/pdf");
-      FileSaver.saveAs(url, "E:/Test.pdf");
     });*/
 
     function nmxxxx(x) {
