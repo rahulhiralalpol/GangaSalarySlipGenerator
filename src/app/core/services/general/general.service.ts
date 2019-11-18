@@ -44,11 +44,15 @@ export class GeneralService {
       }
     });
 
-    var oReq = new XMLHttpRequest();
-    oReq.open("GET", "assets/fonts/Roboto Fonts/Roboto-Black.ttf", true);
+    const oReq = new XMLHttpRequest();
+    oReq.open(
+      "GET",
+      "../../../../assets/fonts/Roboto Fonts/Roboto-Black.ttf",
+      true
+    );
     oReq.responseType = "arraybuffer";
-    //var byteArray = new Uint8Array(oReq.response);
-    var byteArray = new ArrayBuffer(oReq.response);
+    // var byteArray = new Uint8Array(oReq.response);
+    const byteArray = new ArrayBuffer(oReq.response);
 
     /*oReq.onload = function(oEvent) {
       var arrayBuffer = oReq.response; // Note: not oReq.responseText
@@ -59,9 +63,10 @@ export class GeneralService {
         }
       }
     };*/
-    doc.registerFont("RobotoBlack", byteArray, "Roboto");
 
-    // oReq.send(null);
+    doc.registerFont("RobotoBlack", byteArray);
+
+    oReq.send(null);
 
     // Write stream to output PDF
     doc.pipe(fs.createWriteStream("E:/Test.pdf"));
