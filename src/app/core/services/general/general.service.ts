@@ -47,7 +47,8 @@ export class GeneralService {
     var oReq = new XMLHttpRequest();
     oReq.open("GET", "assets/fonts/Roboto Fonts/Roboto-Black.ttf", true);
     oReq.responseType = "arraybuffer";
-    var byteArray = new Uint8Array(oReq.response);
+    //var byteArray = new Uint8Array(oReq.response);
+    var byteArray = new ArrayBuffer(oReq.response);
 
     /*oReq.onload = function(oEvent) {
       var arrayBuffer = oReq.response; // Note: not oReq.responseText
