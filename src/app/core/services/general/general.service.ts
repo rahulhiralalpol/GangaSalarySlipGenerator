@@ -230,109 +230,245 @@ export class GeneralService {
           align: "left",
           baseline: "top"
         }) // Department
-        .text(Employee.PAY_BASIC.toString(), 194 + 52, 129.409 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Basic
-        .text(Employee.PAY_HRA.toString(), 194 + 52, 141.659 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // H.R.A.
-        .text(Employee.PAY_CON.toString(), 194 + 52, 153.426 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Conveyance Allowance
-        .text(Employee.PAY_EDU.toString(), 194 + 52, 165.583 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Education Allowance
-        .text(Employee.PAY_BONUS.toString(), 194 + 52, 178.131 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Bonus
-        .text(Employee.PAY_LEAVE.toString(), 194 + 52, 190.289 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Leave
-        .text(Employee.PERF_ALW.toString(), 194 + 52, 201.953 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Performance Allowance
-        .text(Employee.OTHER_ALW.toString(), 194 + 52, 214.409 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Other Allowance
-        .text(Employee.PF.toString(), 520 + 52, 129.409 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Provident Fund
-        .text(Employee.ESIC.toString(), 520 + 52, 141.659 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // E.S.I.C.
-        .text(Employee.PT.toString(), 520 + 52, 153.426 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Professional Tax
-        .text(Employee.LWF.toString(), 520 + 52, 165.583 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // L.W.F.
-        .text(Employee.TDS.toString(), 520 + 52, 178.131 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // T.D.S.
-        .text(Employee.CASH_ADV.toString(), 520 + 52, 190.289 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Cash Advance
-        .text(Employee.CHEQUE.toString(), 520 + 52, 201.953 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Cheque Advance
-        .text(Employee.LOAN.toString(), 520 + 52, 214.409 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Loan
-        .text(Employee.OTHER_DED.toString(), 520 + 52, 225.972 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }); // Other Deductions
+        .text(
+          Employee.PAY_BASIC.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          129.409 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Basic
+        .text(
+          Employee.PAY_HRA.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          141.659 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // H.R.A.
+        .text(
+          Employee.PAY_CON.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          153.426 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Conveyance Allowance
+        .text(
+          Employee.PAY_EDU.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          165.583 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Education Allowance
+        .text(
+          Employee.PAY_BONUS.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          178.131 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Bonus
+        .text(
+          Employee.PAY_LEAVE.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          190.289 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Leave
+        .text(
+          Employee.PERF_ALW.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          201.953 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Performance Allowance
+        .text(
+          Employee.OTHER_ALW.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          214.409 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Other Allowance
+        .text(
+          Employee.PF.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          129.409 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Provident Fund
+        .text(
+          Employee.ESIC.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          141.659 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // E.S.I.C.
+        .text(
+          Employee.PT.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          153.426 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Professional Tax
+        .text(
+          Employee.LWF.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          165.583 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // L.W.F.
+        .text(
+          Employee.TDS.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          178.131 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // T.D.S.
+        .text(
+          Employee.CASH_ADV.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          190.289 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Cash Advance
+        .text(
+          Employee.CHEQUE.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          201.953 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Cheque Advance
+        .text(
+          Employee.LOAN.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          214.409 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Loan
+        .text(
+          Employee.OTHER_DED.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          225.972 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ); // Other Deductions
       doc
         .setFont("RobotoBold", "normal")
         .setFontSize(10)
-        .text(Employee.TOTAL_EARNINGS.toString(), 194 + 52, 241.024 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }) // Gross Salary
-        .text(Employee.TOTAL_DED.toString(), 520 + 52, 241.024 + ypos, {
-          maxWidth: 52,
-          align: "right",
-          baseline: "top"
-        }); // Total Deductions
+        .text(
+          Employee.TOTAL_EARNINGS.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          194 + 52,
+          241.024 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ) // Gross Salary
+        .text(
+          Employee.TOTAL_DED.toLocaleString("en-IN", {
+            style: "decimal"
+          }).toString(),
+          520 + 52,
+          241.024 + ypos,
+          {
+            maxWidth: 52,
+            align: "right",
+            baseline: "top"
+          }
+        ); // Total Deductions
       doc
         .setFont("RobotoBlack", "normal")
         .setFontSize(16)
         .text(
-          "₹ " + Employee.NET_PAYMENT.toString(),
+          "₹ " +
+            Employee.NET_PAYMENT.toLocaleString("en-IN", {
+              style: "decimal"
+            }).toString(),
           262 + 43,
           235.609 + ypos,
           {
@@ -358,27 +494,7 @@ export class GeneralService {
       author: "Rahul Pol",
       creator: "GANGA Exports"
     });
-
-    doc.save("E:/Test.pdf");
-
-    function nmxxxx(x) {
-      // x = String(x).toString();
-      let afterPoint = "";
-      if (x.counterof(".") > 0) {
-        afterPoint = x.substring(x.counterof("."), x.length);
-        x = Math.floor(x);
-        x = x.toString();
-        let lastThree = x.substring(x.length - 3);
-        const otherNumbers = x.substring(0, x.length - 3);
-        if (otherNumbers !== "") {
-          lastThree = "," + lastThree;
-          return (
-            otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
-            lastThree +
-            afterPoint
-          );
-        }
-      }
-    }
+    const pdfFileName = "Salary Slip - " + sal_Mon + ".pdf";
+    doc.save(pdfFileName);
   }
 }
