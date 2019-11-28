@@ -25,7 +25,7 @@
               "src/favicon.512x512.png"
             ],
             "styles": ["src/styles.scss"],
-            "scripts": ["node_modules/pdfkit/js/pdfkit.standalone.js"],
+            "scripts": [],
             "customWebpackConfig": {
               "path": "./angular.webpack.js"
             }
