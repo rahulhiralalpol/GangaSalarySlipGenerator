@@ -207,7 +207,6 @@ export class GeneralService {
         .setFontSize(12)
         .text(Employee.EMP_NAME, 139.5, 77.001 + ypos, {
           maxWidth: 241,
-          lineHeightFactor: 1.0,
           align: "left",
           baseline: "top"
         }); // Employee Name
@@ -501,7 +500,8 @@ export class GeneralService {
       title: "Salary Slip for the month of " + sal_Mon,
       subject: "Salary Slip",
       author: "Rahul Pol",
-      creator: "GANGA Exports"
+      creator: "GANGA Exports",
+      keywords: "Salary Slip, " + sal_Mon,
     });
     const pdfFileName = "Salary Slip - " + sal_Mon + ".pdf";
     doc.save(pdfFileName);
