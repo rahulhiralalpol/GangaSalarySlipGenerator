@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import * as XLSX from "xlsx";
 import jsPDF from "jsPDF";
-
 @Injectable({
   providedIn: "root"
 })
@@ -501,7 +500,7 @@ export class GeneralService {
       subject: "Salary Slip",
       author: "Rahul Pol",
       creator: "GANGA Exports",
-      keywords: "Salary Slip, " + sal_Mon,
+      keywords: "Salary Slip, " + sal_Mon
     });
     const pdfFileName = "Salary Slip - " + sal_Mon + ".pdf";
     doc.save(pdfFileName);
