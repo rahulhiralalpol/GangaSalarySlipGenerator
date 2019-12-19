@@ -3,7 +3,6 @@
 .container {
   display: grid;
   grid-template-rows: min-content auto min-content;
-  //grid-template: auto auto;
   height: 100%;
 
   mat-toolbar {
@@ -39,13 +38,11 @@
           cursor: pointer;
           font-size: 16px;
           font-weight: 100;
-        }
-
-        mat-icon:hover {
-          font-size: 24px;
+          transition: all 0.3s ease;
         }
       }
-      button:hover {
+      button:hover mat-icon {
+        font-size: 24px;
         color: goldenrod;
       }
     }

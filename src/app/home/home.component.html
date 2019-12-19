@@ -40,11 +40,11 @@
       mat-raised-button
       color="warn"
       (click)="CreatePDF()"
+      [routerLink]="['/viewpdf']"
     >
       Create Salary Slip PDF
     </button>
   </main>
-
   <div class="progBar">
     <mat-progress-bar [color]="color" [mode]="mode"></mat-progress-bar>
   </div>

@@ -1,0 +1,53 @@
+@import "typeface-roboto/index.css";
+
+.container {
+  display: grid;
+  grid-template-rows: min-content auto;
+  height: 100%;
+
+  mat-toolbar {
+    height: 40px;
+    background: #555555;
+    display: grid;
+    grid-template-columns: auto min-content;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    -webkit-app-region: drag;
+
+    .filename {
+      align-content: stretch;
+      text-align: center;
+      font-family: RobotoThin;
+      font-size: 1.05rem;
+      margin: 0;
+      padding: 0;
+      color: #eeeeee;
+    }
+
+    .navbuttons {
+      display: grid;
+      grid-template-columns: auto;
+
+      button {
+        -webkit-app-region: no-drag;
+
+        mat-icon {
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 100;
+          transition: all 0.3s ease;
+        }
+      }
+      button:hover mat-icon {
+        font-size: 24px;
+        color: goldenrod;
+      }
+    }
+  }
+
+  main {
+    background: #555555;
+    height: 100%;
+  }
+}

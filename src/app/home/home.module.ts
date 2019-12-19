@@ -13,9 +13,10 @@ import {
   MatInputModule,
   MatProgressBarModule
 } from "@angular/material";
+import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ViewpdfComponent],
   imports: [
     CommonModule,
     SharedModule,
