@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../core/services";
 import { app } from "electron";
 import { GeneralService } from "../core/services/general/general.service";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -19,8 +18,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private electron: ElectronService,
-    private generalService: GeneralService,
-    private router: Router
+    private generalService: GeneralService
   ) {}
 
   ngOnInit() {}
@@ -52,15 +50,6 @@ export class HomeComponent implements OnInit {
   }
 
   CreatePDF() {
-    this.OpenPDF(this.selectedFile, this.generalService.GeneratePDF);
-    this.router.navigate(["viewpdf"]);
-    // this.generalService.GeneratePDF(this.selectedFile);
+    this.generalService.GeneratePDF(this.selectedFile);
   }
-
-  OpenPDF = function(file, callback) {
-    // let res = { pdfuri: null };
-    // res = callback(file);
-    callback(file);
-    // return res;
-  };
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { GeneralService } from "../../core/services/general/general.service";
 
 @Component({
   selector: "app-viewpdf",
@@ -6,7 +7,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./viewpdf.component.scss"]
 })
 export class ViewpdfComponent implements OnInit {
-  constructor() {}
+  pdfDocument: string = null;
+  constructor(private generalService: GeneralService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.pdfDocument = this.generalService.pdfFileData;
+    console.log(this.pdfDocument);
+  }
 }

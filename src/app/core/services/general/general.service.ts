@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 import * as XLSX from "xlsx";
 import jsPDF from "jsPDF";
+import { Router } from "@angular/router";
 @Injectable({
   providedIn: "root"
 })
 export class GeneralService {
-  constructor() {}
+  public pdfFileData: string;
+
+  constructor(private router: Router) {}
 
   GeneratePDF(inputExcel) {
     // Define workbook from which the data needs to be extracted and parse it to json
@@ -508,6 +511,8 @@ export class GeneralService {
       keywords: "Salary Slip, " + sal_Mon
     });
     const pdfFileName = "Salary Slip - " + sal_Mon + ".pdf";
-    doc.save(pdfFileName);
+    // doc.save(pdfFileName);
+    this.pdfFileData = doc.output("datauristring");
+    this.router.navigate(["viewpdf"]);
   }
 }
