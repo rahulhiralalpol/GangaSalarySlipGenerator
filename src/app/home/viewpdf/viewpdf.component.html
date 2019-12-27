@@ -1,6 +1,6 @@
 <div class="container">
   <mat-toolbar>
-    <div class="filename">My File</div>
+    <div class="filename">{{ pdfFileName }}</div>
     <div class="navbuttons">
       <button mat-icon-button [routerLink]="['/home']">
         <mat-icon>close</mat-icon>
@@ -9,13 +9,17 @@
   </mat-toolbar>
   <main>
     <ngx-extended-pdf-viewer
-      [src]="'assets/CV - Kumudini.pdf'"
-      [base64Src]="pdfDocument"
-      backgroundColor="#ffffff"
+      [base64Src]="pdfFileData"
+      backgroundColor="#555555"
       [height]="'100%'"
       [useBrowserLocale]="true"
       [handTool]="true"
       [showHandToolButton]="true"
+      [filenameForDownload]="pdfFileName"
+      [zoom]="'page-fit'"
+      [showBookmarkButton]="false"
+      [showOpenFileButton]="false"
+      [showFindButton]="true"
     >
     </ngx-extended-pdf-viewer>
   </main>

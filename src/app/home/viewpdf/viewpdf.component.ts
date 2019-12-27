@@ -7,11 +7,12 @@ import { GeneralService } from "../../core/services/general/general.service";
   styleUrls: ["./viewpdf.component.scss"]
 })
 export class ViewpdfComponent implements OnInit {
-  pdfDocument: string = null;
+  pdfFileData: any;
+  pdfFileName: string;
   constructor(private generalService: GeneralService) {}
 
   ngOnInit() {
-    this.pdfDocument = this.generalService.pdfFileData;
-    console.log(this.pdfDocument);
+    this.pdfFileData = this.generalService.pdfFileData;
+    this.pdfFileName = this.generalService.pdfFileName;
   }
 }
