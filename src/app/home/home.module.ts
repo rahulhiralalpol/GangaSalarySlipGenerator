@@ -14,6 +14,7 @@ import {
   MatProgressBarModule
 } from "@angular/material";
 import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
+import { NgxExtendedPdfViewerModule } from "ngx-extended-pdf-viewer";
 
 @NgModule({
   declarations: [HomeComponent, ViewpdfComponent],
@@ -25,7 +26,8 @@ import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
     MatIconModule,
     MatToolbarModule,
     MatInputModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    NgxExtendedPdfViewerModule
   ]
 })
 export class HomeModule {}

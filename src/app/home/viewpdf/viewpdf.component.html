@@ -7,5 +7,16 @@
       </button>
     </div>
   </mat-toolbar>
-  <main></main>
+  <main>
+    <ngx-extended-pdf-viewer
+      [src]="'assets/CV - Kumudini.pdf'"
+      [base64Src]="pdfDocument"
+      backgroundColor="#ffffff"
+      [height]="'100%'"
+      [useBrowserLocale]="true"
+      [handTool]="true"
+      [showHandToolButton]="true"
+    >
+    </ngx-extended-pdf-viewer>
+  </main>
 </div>

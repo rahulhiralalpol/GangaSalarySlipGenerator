@@ -91,6 +91,7 @@
     "blob-stream": "0.1.3",
     "hammerjs": "^2.0.8",
     "jspdf": "1.5.3",
+    "ngx-extended-pdf-viewer": "1.8.4",
     "typeface-roboto": "0.0.75",
     "xlsx": "0.15.2"
   }
