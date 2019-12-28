@@ -2,7 +2,7 @@
   <mat-toolbar>
     <div class="filename">{{ pdfFileName }}</div>
     <div class="navbuttons">
-      <button mat-icon-button [routerLink]="['/home']">
+      <button mat-icon-button (click)="backtohome()">
         <mat-icon>close</mat-icon>
       </button>
     </div>
