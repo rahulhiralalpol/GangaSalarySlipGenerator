@@ -1,17 +1,24 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
-import { HomeComponent } from "./home.component";
+import { FileselectComponent } from "./fileselect/fileselect.component";
 import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
+import { HomeComponent } from "./home.component";
 
 const routes: Routes = [
   {
-    path: "home",
-    component: HomeComponent
-  },
-  {
-    path: "viewpdf",
-    component: ViewpdfComponent
+    path: "",
+    component: HomeComponent,
+    children: [
+      {
+        path: "fileselect",
+        component: FileselectComponent
+      },
+      {
+        path: "viewpdf",
+        component: ViewpdfComponent
+      }
+    ]
   }
 ];
 

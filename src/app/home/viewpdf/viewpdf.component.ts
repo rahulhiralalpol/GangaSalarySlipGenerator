@@ -29,9 +29,10 @@ export class ViewpdfComponent implements OnInit {
   }
   backtohome() {
     this.electron.window.resizable = true;
-    this.electron.window.setSize(650, 270, true);
+    this.electron.window.setSize(650, 260, true);
     this.electron.window.center();
     this.electron.window.resizable = false;
-    this.router.navigate(["home"]);
+    this.electron.window.maximizable = false;
+    this.router.navigate(["/fileselect"]);
   }
 }

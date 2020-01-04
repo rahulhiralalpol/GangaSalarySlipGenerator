@@ -17,34 +17,5 @@
       </button>
     </div>
   </mat-toolbar>
-
-  <main>
-    <form class="rForm">
-      <mat-form-field class="frmField">
-        <input
-          matInput
-          placeholder="Selected File"
-          disabled
-          [value]="selectedFile"
-        />
-        <mat-hint align="start">Please select the Excel File</mat-hint>
-      </mat-form-field>
-      <button mat-raised-button color="accent" (click)="FileOpenDialog()">
-        ...
-      </button>
-    </form>
-
-    <button
-      class="CreatePDFBtn"
-      [disabled]="!isFileSelected"
-      mat-raised-button
-      color="warn"
-      (click)="CreatePDF()"
-    >
-      Create Salary Slip PDF
-    </button>
-  </main>
-  <div class="progBar">
-    <mat-progress-bar [color]="color" [mode]="mode"></mat-progress-bar>
-  </div>
+  <router-outlet></router-outlet>
 </div>

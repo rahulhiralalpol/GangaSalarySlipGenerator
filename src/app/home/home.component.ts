@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../core/services";
 import { app } from "electron";
-import { GeneralService } from "../core/services/general/general.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -9,19 +9,11 @@ import { GeneralService } from "../core/services/general/general.service";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  color = "warn";
-  mode = "indeterminate";
+  constructor(private electron: ElectronService, private router: Router) {}
 
-  selectedFile: any = null;
-  fileresult: any;
-  isFileSelected: boolean;
-
-  constructor(
-    private electron: ElectronService,
-    private generalService: GeneralService
-  ) {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.navigate(["fileselect"]);
+  }
 
   ExitWindow() {
     this.electron.window.close();
@@ -29,27 +21,5 @@ export class HomeComponent implements OnInit {
 
   MinWindow() {
     this.electron.window.minimize();
-  }
-
-  FileOpenDialog() {
-    const { dialog } = require("electron").remote;
-
-    this.fileresult = dialog.showOpenDialogSync(this.electron.window, {
-      title: "Select the Excel File to be Processed",
-      defaultPath: "C:\\",
-      filters: [{ name: "Excel Files", extensions: ["xls", "xlsx"] }],
-      properties: ["openFile", "multiSelections"]
-    });
-    if (this.fileresult === undefined) {
-      this.selectedFile = null;
-      this.isFileSelected = false;
-    } else {
-      this.selectedFile = this.fileresult;
-      this.isFileSelected = true;
-    }
-  }
-
-  CreatePDF() {
-    this.generalService.GeneratePDF(this.selectedFile);
   }
 }

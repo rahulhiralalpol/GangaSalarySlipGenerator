@@ -14,10 +14,11 @@ function createWindow() {
   win = new BrowserWindow({
     center: true,
     width: 650,
-    height: 270,
+    height: 260,
     transparent: true,
     frame: false,
     resizable: false,
+    maximizable: false,
     fullscreen: false,
     webPreferences: {
       nodeIntegration: true

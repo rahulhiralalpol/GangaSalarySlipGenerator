@@ -15,9 +15,10 @@ import {
 } from "@angular/material";
 import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
 import { NgxExtendedPdfViewerModule } from "ngx-extended-pdf-viewer";
+import { FileselectComponent } from "./fileselect/fileselect.component";
 
 @NgModule({
-  declarations: [HomeComponent, ViewpdfComponent],
+  declarations: [HomeComponent, ViewpdfComponent, FileselectComponent],
   imports: [
     CommonModule,
     SharedModule,
