@@ -17,10 +17,12 @@ export class FileselectComponent implements OnInit {
 
   constructor(
     private electron: ElectronService,
-    private generalService: GeneralService
+    private generalservice: GeneralService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.generalservice.ResizeToOriginal();
+  }
 
   FileOpenDialog() {
     const { dialog } = require("electron").remote;
@@ -41,6 +43,6 @@ export class FileselectComponent implements OnInit {
   }
 
   CreatePDF() {
-    this.generalService.GeneratePDF(this.selectedFile);
+    this.generalservice.GeneratePDF(this.selectedFile);
   }
 }

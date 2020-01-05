@@ -16,9 +16,11 @@ import {
 import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
 import { NgxExtendedPdfViewerModule } from "ngx-extended-pdf-viewer";
 import { FileselectComponent } from "./fileselect/fileselect.component";
+import { AboutComponent } from './about/about.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
-  declarations: [HomeComponent, ViewpdfComponent, FileselectComponent],
+  declarations: [HomeComponent, ViewpdfComponent, FileselectComponent, AboutComponent, SettingsComponent],
   imports: [
     CommonModule,
     SharedModule,

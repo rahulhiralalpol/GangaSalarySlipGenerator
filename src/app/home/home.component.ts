@@ -22,4 +22,12 @@ export class HomeComponent implements OnInit {
   MinWindow() {
     this.electron.window.minimize();
   }
+
+  ShowAbout() {
+    this.router.navigate(["about"]);
+  }
+
+  OpenSettings() {
+    this.router.navigate(["settings"]);
+  }
 }

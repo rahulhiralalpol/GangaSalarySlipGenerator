@@ -4,6 +4,7 @@ main {
   margin: 0px;
   display: grid;
   grid-template-rows: min-content auto;
+  border-radius: 0px 0px 10px 10px;
 
   .rForm {
     display: grid;

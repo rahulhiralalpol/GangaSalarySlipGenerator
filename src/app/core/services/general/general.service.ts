@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import * as XLSX from "xlsx";
 import jsPDF from "jsPDF";
 import { Router } from "@angular/router";
+import { ElectronService } from "../electron/electron.service";
 
 @Injectable({
   providedIn: "root"
@@ -11,7 +12,7 @@ export class GeneralService {
   public pdfFileData: string;
   public pdfFileName: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private electron: ElectronService) {}
 
   // Function to Generate the PDF
   GeneratePDF(inputExcel) {
@@ -541,6 +542,14 @@ export class GeneralService {
     );
 
     // Navigate to the PDF viewer (viewpdf) Component
-    this.router.navigate(["/viewpdf"]);
+    this.router.navigate(["viewpdf"]);
+  }
+
+  ResizeToOriginal() {
+    this.electron.window.resizable = true;
+    this.electron.window.setSize(650, 260, true);
+    this.electron.window.center();
+    this.electron.window.resizable = false;
+    this.electron.window.maximizable = false;
   }
 }

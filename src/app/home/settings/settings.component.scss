@@ -1,0 +1,23 @@
+@import "typeface-roboto/index.css";
+
+.container {
+  display: grid;
+  grid-template-rows: auto;
+  height: 100%;
+  background: #555555;
+
+  .content {
+    margin: 10px;
+    display: grid;
+    grid-template-rows: auto max-content;
+
+    main {
+      justify-content: stretch;
+      background: #555555;
+    }
+
+    button {
+      justify-self: right;
+    }
+  }
+}

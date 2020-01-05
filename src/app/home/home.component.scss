@@ -8,7 +8,7 @@
   align-items: stretch;
 
   mat-toolbar {
-    border-radius: 25px 0px 0px 0px;
+    border-radius: 25px 10px 0px 0px;
     background: #555555;
     display: grid;
     grid-template-columns: min-content auto min-content;
@@ -24,9 +24,9 @@
     div.applititle {
       align-content: stretch;
       text-align: center;
-      font-family: RobotoThin;
-      font-size: 1.15rem;
-      color: #eeeeee;
+      font-family: RobotoRegular;
+      font-size: 1.2rem;
+      color: goldenrod;
     }
 
     .navbuttons {

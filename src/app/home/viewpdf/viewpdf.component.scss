@@ -2,26 +2,30 @@
 
 .container {
   display: grid;
-  grid-template-rows: min-content auto;
+  grid-template-rows: max-content auto;
   height: 100%;
+  background: #555555;
 
   mat-toolbar {
+    border-radius: 10px 10px 0px 0px;
     height: 40px;
-    background: #555555;
+    width: fit-content;
+    background: #4d4d4d;
     display: grid;
-    grid-template-columns: auto min-content;
-    align-items: center;
+    grid-template-columns: min-content min-content;
+    justify-self: left;
+    align-items: left;
     margin: 0;
     padding: 0;
 
     .filename {
       align-content: stretch;
       text-align: center;
-      font-family: RobotoThin;
-      font-size: 0.9rem;
+      font-family: RobotoRegular;
+      font-size: 0.85rem;
       margin: 0;
-      padding: 0;
-      color: #eeeeee;
+      padding: 0px 10px;
+      color: goldenrod;
     }
 
     .navbuttons {
