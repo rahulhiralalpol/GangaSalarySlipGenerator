@@ -11,16 +11,23 @@ import {
   MatIconModule,
   MatToolbarModule,
   MatInputModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatRadioModule
 } from "@angular/material";
 import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
 import { NgxExtendedPdfViewerModule } from "ngx-extended-pdf-viewer";
 import { FileselectComponent } from "./fileselect/fileselect.component";
-import { AboutComponent } from './about/about.component';
-import { SettingsComponent } from './settings/settings.component';
+import { AboutComponent } from "./about/about.component";
+import { SettingsComponent } from "./settings/settings.component";
 
 @NgModule({
-  declarations: [HomeComponent, ViewpdfComponent, FileselectComponent, AboutComponent, SettingsComponent],
+  declarations: [
+    HomeComponent,
+    ViewpdfComponent,
+    FileselectComponent,
+    AboutComponent,
+    SettingsComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
@@ -29,6 +36,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatIconModule,
     MatToolbarModule,
     MatInputModule,
+    MatRadioModule,
     MatProgressBarModule,
     NgxExtendedPdfViewerModule
   ]

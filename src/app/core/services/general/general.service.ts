@@ -29,6 +29,19 @@ export class GeneralService {
       raw: true,
       defval: ""
     });
+    const FirstRow = Employees[0];
+    const XLHeader = Object.keys(FirstRow);
+
+    const HeaderCheck = this.CheckHeaders(XLHeader);
+    if (HeaderCheck.length > 0) {
+      alert(
+        "Cannot find column(s) " +
+          HeaderCheck +
+          " in given excel file. Please check the headers of the given excel file."
+      );
+    } else {
+      alert("Headers Matched");
+    }
 
     let Employee: any = null;
 
@@ -545,6 +558,48 @@ export class GeneralService {
     this.router.navigate(["viewpdf"]);
   }
 
+  // Check if required Headers are available in the Excel File
+  CheckHeaders(xlheader) {
+    const headerlist = [
+      "SR",
+      "SAL_MONTH",
+      "EMP_NO",
+      "DEPT",
+      "EMP_NAME",
+      "UAN_NUMBER",
+      "PF_NUMBER",
+      "ESIC_NUMBER",
+      "PAY_BASIC",
+      "PAY_HRA",
+      "PAY_CON",
+      "PAY_EDU",
+      "PAY_BONUS",
+      "PAY_LEAVE",
+      "PERF_ALW",
+      "OTHER_ALW",
+      "TOTAL_EARNINGS",
+      "CASH_ADV",
+      "CHEQUE",
+      "OTHER_DED",
+      "LOAN",
+      "PF",
+      "ESIC",
+      "PT",
+      "LWF",
+      "TDS",
+      "TOTAL_DED",
+      "NET_PAYMENT"
+    ];
+    const missingitems = [];
+    headerlist.forEach(key => {
+      if (xlheader.indexOf(key.toString()) < 0) {
+        missingitems.push(key.toString());
+      }
+    });
+    return missingitems;
+  }
+
+  // Resize window to original size
   ResizeToOriginal() {
     this.electron.window.resizable = true;
     this.electron.window.setSize(650, 260, true);

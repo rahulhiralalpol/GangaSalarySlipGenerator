@@ -17,4 +17,8 @@ export class SettingsComponent implements OnInit {
   backtohome() {
     this.router.navigate(["fileselect"]);
   }
+
+  saveandbacktohome() {
+    this.router.navigate(["fileselect"]);
+  }
 }

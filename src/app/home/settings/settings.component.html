@@ -1,8 +1,19 @@
 <div class="container">
   <div class="content">
-    <main>Welcome to Settings Component</main>
-    <button mat-raised-button color="warn" (click)="backtohome()">
-      Save & Exit
-    </button>
+    <main>
+      <mat-radio-group>
+        <mat-radio-button value="1">Set Last Saved Location</mat-radio-button>
+        <mat-radio-button value="2">Set Selected Location</mat-radio-button>
+      </mat-radio-group>
+    </main>
+    <div class="buttons">
+      <span> </span>
+      <button mat-raised-button color="warn" (click)="saveandbacktohome()">
+        Save & Exit
+      </button>
+      <button mat-raised-button color="warn" (click)="backtohome()">
+        Cancel
+      </button>
+    </div>
   </div>
 </div>
