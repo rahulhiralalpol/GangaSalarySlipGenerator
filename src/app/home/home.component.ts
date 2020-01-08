@@ -1,7 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../core/services";
 import { app } from "electron";
-import { Router } from "@angular/router";
+import {
+  Router,
+  NavigationStart,
+  NavigationEnd,
+  RouterEvent
+} from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -9,7 +14,17 @@ import { Router } from "@angular/router";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  constructor(private electron: ElectronService, private router: Router) {}
+  showLoadingIndicator = false;
+  constructor(private electron: ElectronService, private router: Router) {
+    this.router.events.subscribe((routerEvent: RouterEvent) => {
+      if (routerEvent instanceof NavigationStart) {
+        this.showLoadingIndicator = true;
+      }
+      if (routerEvent instanceof NavigationEnd) {
+        this.showLoadingIndicator = false;
+      }
+    });
+  }
 
   ngOnInit() {
     this.router.navigate(["fileselect"]);
