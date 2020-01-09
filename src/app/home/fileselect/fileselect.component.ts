@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ElectronService } from "../../core/services";
 import { GeneralService } from "../../core/services/general/general.service";
 
@@ -15,13 +15,20 @@ export class FileselectComponent implements OnInit {
   fileresult: any;
   isFileSelected: boolean;
 
+  @Input() progressvalue: number = 0;
+  hideprogress: boolean;
+
   constructor(
     private electron: ElectronService,
     private generalservice: GeneralService
-  ) {}
+  ) {
+    this.hideprogress = this.progressvalue < 1;
+    this.progressvalue = this.generalservice.progressvalue;
+  }
 
   ngOnInit() {
     this.generalservice.ResizeToOriginal();
+    // this.hideprogress = this.progressvalue < 1;
   }
 
   FileOpenDialog() {

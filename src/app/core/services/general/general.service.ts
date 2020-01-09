@@ -1,8 +1,9 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Output } from "@angular/core";
 import * as XLSX from "xlsx";
 import jsPDF from "jsPDF";
 import { Router } from "@angular/router";
 import { ElectronService } from "../electron/electron.service";
+import { EventEmitter } from "events";
 
 @Injectable({
   providedIn: "root"
@@ -11,6 +12,7 @@ export class GeneralService {
   // Properties to be exported to PDF Viewer
   public pdfFileData: string;
   public pdfFileName: string;
+  public progressvalue: number;
 
   constructor(private router: Router, private electron: ElectronService) {}
 
@@ -85,6 +87,8 @@ export class GeneralService {
 
       for (Employee of Employees) {
         ypos = (Employees.indexOf(Employee) % 3) * 269.3;
+        this.progressvalue =
+          (Employees.indexOf(Employee) * 100) / Employees.length;
         sal_Mon = Employee.SAL_MONTH;
 
         // Add Logo to document
