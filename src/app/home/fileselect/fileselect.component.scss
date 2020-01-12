@@ -7,7 +7,7 @@
   .content {
     margin: 15px;
     display: grid;
-    grid-template-rows: min-content auto min-content;
+    grid-template-rows: auto min-content;
     row-gap: 15px;
     border-radius: 0px 0px 10px 10px;
 
@@ -16,7 +16,7 @@
       grid-template-columns: auto min-content;
       column-gap: 15px;
       justify-items: center;
-      padding-top: 5px;
+      padding-top: 20px;
 
       .frmField {
         font-family: Roboto;
