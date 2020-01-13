@@ -1,6 +1,13 @@
 <div class="container">
   <div class="content">
-      <form class="rForm">
+    <mat-progress-bar
+      [color]="'warn'"
+      [mode]="'determinate'"
+      [value]="value"
+      *ngIf="value > 0"
+    >
+    </mat-progress-bar>
+    <form class="rForm">
       <mat-form-field class="frmField">
         <input
           matInput

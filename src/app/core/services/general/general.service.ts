@@ -3,6 +3,7 @@ import * as XLSX from "xlsx";
 import jsPDF from "jsPDF";
 import { Router } from "@angular/router";
 import { ElectronService } from "../electron/electron.service";
+import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -12,6 +13,8 @@ export class GeneralService {
   public pdfFileData: string;
   public pdfFileName: string;
   public progressvalue;
+
+  progress = new Subject<any>();
 
   constructor(private router: Router, private electron: ElectronService) {}
 
@@ -91,6 +94,7 @@ export class GeneralService {
           (Employees.indexOf(Employee) * 100) /
           Employees.length
         ).toFixed(0);
+        this.progress.next(this.progressvalue);
         sal_Mon = Employee.SAL_MONTH;
 
         // Add Logo to document
@@ -568,7 +572,7 @@ export class GeneralService {
       );
 
       // Navigate to the PDF viewer (viewpdf) Component
-      this.router.navigate(["viewpdf"]);
+      // this.router.navigate(["viewpdf"]);
     }
   }
 

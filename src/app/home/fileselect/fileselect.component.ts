@@ -8,8 +8,7 @@ import { GeneralService } from "../../core/services/general/general.service";
   styleUrls: ["./fileselect.component.scss"]
 })
 export class FileselectComponent implements OnInit {
-  color = "warn";
-  mode = "indeterminate";
+  value: number;
 
   selectedFile: any = null;
   fileresult: any;
@@ -19,7 +18,9 @@ export class FileselectComponent implements OnInit {
     private electron: ElectronService,
     private generalservice: GeneralService
   ) {
-    // this.hideprogress = this.progressvalue < 1;
+    this.generalservice.progress.subscribe(progvalue => {
+      this.value = progvalue;
+    });
   }
 
   ngOnInit() {
