@@ -10,14 +10,37 @@
     margin: 15px;
     display: grid;
     grid-template-rows: auto max-content;
+    row-gap: 10px;
 
     main {
       justify-content: stretch;
       background: #555555;
+      display: grid;
+      grid-template-columns: max-content auto;
+      column-gap: 30px;
+
+      .created {
+        place-self: end end;
+        color: #1e1e1e;
+      }
+
+      .namesvg {
+        height: 55px;
+        align-self: end;
+        justify-self: left;
+        color: #333333;
+      }
     }
 
-    button {
-      justify-self: right;
+    .buttons {
+      display: grid;
+      grid-template-columns: auto min-content;
+
+      .contact {
+        color: #1e1e1e;
+        align-self: end;
+        text-align: left;
+      }
     }
   }
 }
