@@ -8,7 +8,7 @@ import { GeneralService } from "../../core/services/general/general.service";
   styleUrls: ["./fileselect.component.scss"]
 })
 export class FileselectComponent implements OnInit {
-  value: number;
+  value;
 
   selectedFile: any = null;
   fileresult: any;

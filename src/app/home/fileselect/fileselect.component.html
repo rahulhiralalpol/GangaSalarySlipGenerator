@@ -3,7 +3,7 @@
     <mat-progress-bar
       [color]="'warn'"
       [mode]="'determinate'"
-      [value]="value"
+      [value]="value | async"
       *ngIf="value > 0"
     >
     </mat-progress-bar>

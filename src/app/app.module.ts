@@ -20,7 +20,6 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { GeneralService } from "./core/services/general/general.service";
-import { NgxExtendedPdfViewerModule } from "ngx-extended-pdf-viewer";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -37,7 +36,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule,
     HomeModule,
     AppRoutingModule,
-    NgxExtendedPdfViewerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
