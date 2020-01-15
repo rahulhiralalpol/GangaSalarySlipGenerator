@@ -1,5 +1,7 @@
 @import "typeface-roboto/index.css";
 
+$OliveGreen: #968c07;
+
 .container {
   display: grid;
   grid-template-rows: auto;
@@ -40,18 +42,18 @@
 
     .buttons {
       display: grid;
-      grid-template-columns: auto;
+      grid-template-columns: auto min-content;
 
       button {
         background-color: #444444;
-        color: rgb(170, 162, 162);
+        color: #aaa2a2;
         transition: all 0.3s ease;
       }
 
       button:hover {
-        background-color: #444444;
-        color: goldenrod;
-        font-size: 1rem;
+        background-color: $OliveGreen;
+        color: #000000;
+        transform: scale(1.075);
       }
     }
   }

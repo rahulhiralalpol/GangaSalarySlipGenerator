@@ -3,7 +3,7 @@
     <mat-progress-bar
       [color]="'warn'"
       [mode]="'determinate'"
-      [value]="value | async"
+      [value]="value"
       *ngIf="value > 0"
     >
     </mat-progress-bar>
@@ -17,7 +17,7 @@
         />
         <mat-hint align="start">Please select the Excel File</mat-hint>
       </mat-form-field>
-      <button mat-raised-button color="accent" (click)="FileOpenDialog()">
+      <button mat-raised-button (click)="FileOpenDialog()">
         ...
       </button>
     </form>
@@ -26,7 +26,6 @@
       class="CreatePDFBtn"
       [disabled]="!isFileSelected"
       mat-raised-button
-      color="warn"
       (click)="CreatePDF()"
     >
       Create Salary Slip PDF
