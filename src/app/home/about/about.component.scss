@@ -10,36 +10,48 @@
     margin: 15px;
     display: grid;
     grid-template-rows: auto max-content;
-    row-gap: 10px;
+    row-gap: 25px;
 
     main {
       justify-content: stretch;
       background: #555555;
       display: grid;
-      grid-template-columns: max-content auto;
-      column-gap: 30px;
+      grid-template-columns: max-content auto auto;
+      column-gap: 20px;
 
       .created {
         place-self: end end;
-        color: #1e1e1e;
+        color: #252525;
       }
 
       .namesvg {
-        height: 55px;
+        height: 50px;
         align-self: end;
         justify-self: left;
-        color: #333333;
+        color: #252525;
+      }
+
+      .contact {
+        color: #252525;
+        align-self: end;
+        text-align: right;
       }
     }
 
     .buttons {
       display: grid;
-      grid-template-columns: auto min-content;
+      grid-template-columns: auto;
 
-      .contact {
-        color: #1e1e1e;
-        align-self: end;
-        text-align: left;
+      button {
+        background-color: #444444;
+        color: rgb(170, 162, 162);
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #444444;
+        color: goldenrod;
+        font-size: 1rem;
       }
     }
   }
