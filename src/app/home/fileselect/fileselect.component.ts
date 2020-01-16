@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../../core/services";
 import { GeneralService } from "../../core/services/general/general.service";
 
@@ -8,7 +8,7 @@ import { GeneralService } from "../../core/services/general/general.service";
   styleUrls: ["./fileselect.component.scss"]
 })
 export class FileselectComponent implements OnInit {
-  value;
+  value: number;
 
   selectedFile: any = null;
   fileresult: any;
@@ -19,7 +19,7 @@ export class FileselectComponent implements OnInit {
     private generalservice: GeneralService
   ) {
     this.generalservice.progress.subscribe(progvalue => {
-      this.value = progvalue;
+      this.value = parseInt(progvalue) + 1;
     });
   }
 

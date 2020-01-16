@@ -572,7 +572,7 @@ export class GeneralService {
       );
 
       // Navigate to the PDF viewer (viewpdf) Component
-      this.router.navigate(["viewpdf"]);
+      // this.router.navigate(["viewpdf"]);
     }
   }
 
