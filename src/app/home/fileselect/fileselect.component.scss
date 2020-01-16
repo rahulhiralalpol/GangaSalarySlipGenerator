@@ -1,4 +1,5 @@
 $OliveGreen: #968c07;
+$DarkOliveGreen: #817530;
 
 .container {
   display: grid;
@@ -46,6 +47,10 @@ $OliveGreen: #968c07;
       background-color: #444444;
       color: #aaa2a2;
       transition: all 0.3s ease;
+    }
+
+    .CreatePDFBtn:not([disabled]) {
+      background-color: $DarkOliveGreen;
     }
 
     .CreatePDFBtn:hover:not([disabled]) {
