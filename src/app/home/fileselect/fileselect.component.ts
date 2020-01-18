@@ -10,10 +10,10 @@ import * as path from "path";
   styleUrls: ["./fileselect.component.scss"]
 })
 export class FileselectComponent implements OnInit {
-  value;
+  value: number;
   prefs;
-  defaultPath;
-  filePath;
+  defaultPath: string;
+  filePath: string;
 
   selectedFile: string = null;
   fileresult: any;
@@ -48,7 +48,7 @@ export class FileselectComponent implements OnInit {
       title: "Select the Excel File to be Processed",
       defaultPath: this.defaultPath,
       filters: [{ name: "Excel Files", extensions: ["xls", "xlsx"] }],
-      properties: ["openFile", "multiSelections"]
+      properties: ["openFile"]
     });
     if (this.fileresult === undefined) {
       this.selectedFile = null;
@@ -56,11 +56,14 @@ export class FileselectComponent implements OnInit {
     } else {
       this.selectedFile = this.fileresult;
       this.isFileSelected = true;
-      alert(this.selectedFile);
-      alert(path.dirname("C:/Windows/Fonts/8514fix.fon"));
-      alert(path.dirname(this.selectedFile.replace(/\\/g, "/")));
-
-      this.prefs.set("lastFileOpenedDirectory", "C:\\");
+      this.filePath = escape(this.selectedFile)
+        .split("%5C")
+        .join("\\")
+        .split("%20")
+        .join(" ")
+        .split("%3A")
+        .join(":");
+      this.prefs.set("lastFileOpenedDirectory", path.dirname(this.filePath));
     }
   }
 
