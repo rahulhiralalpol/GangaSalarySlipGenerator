@@ -14,8 +14,6 @@ import {
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  value: number;
-  showLoadingIndicator = false;
   constructor(private electron: ElectronService, private router: Router) {}
 
   ngOnInit() {
