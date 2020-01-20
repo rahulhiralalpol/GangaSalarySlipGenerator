@@ -18,7 +18,7 @@ $OliveGreen: #968c07;
       justify-content: stretch;
       background: #555555;
       display: grid;
-      grid-template-columns: max-content auto auto;
+      grid-template-columns: max-content auto auto auto;
       column-gap: 20px;
 
       .created {
@@ -26,11 +26,31 @@ $OliveGreen: #968c07;
         color: #252525;
       }
 
-      .namesvg {
-        height: 50px;
+      svg {
+        transform: translate(0px, -2px);
+        fill: #353535;
+        height: 55px;
         align-self: end;
         justify-self: left;
-        color: #252525;
+      }
+
+      .socialgroup {
+        display: flex;
+        justify-content: space-between;
+        align-self: end;
+
+        svg {
+          height: 35px;
+          fill: #393939;
+          transform: translate(0px, 3px);
+          transition: all 0.3s ease;
+        }
+        svg:hover {
+          cursor: pointer;
+          transform: scale(1.2);
+          transform: translate(0px, 0px);
+          fill: $OliveGreen;
+        }
       }
 
       .contact {
