@@ -16,6 +16,8 @@ export class GeneralService {
 
   progress = new Subject<any>();
 
+  win;
+
   constructor(private router: Router, private electron: ElectronService) {}
 
   // Function to Generate the PDF
@@ -572,6 +574,7 @@ export class GeneralService {
       );
 
       // Navigate to the PDF viewer (viewpdf) Component
+      // this.OpenURLinNewWindow(this.pdfFileData);
       this.router.navigate(["viewpdf"]);
     }
   }
@@ -624,5 +627,14 @@ export class GeneralService {
     this.electron.window.center();
     this.electron.window.resizable = false;
     this.electron.window.maximizable = false;
+  }
+
+  OpenURLinNewWindow(url) {
+    this.win = new this.electron.remote.BrowserWindow({
+      frame: true,
+      autoHideMenuBar: true
+    });
+    this.win.maximize();
+    this.win.loadURL(url);
   }
 }

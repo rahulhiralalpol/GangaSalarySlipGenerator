@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { GeneralService } from "../../core/services";
-import { MatIconRegistry } from "@angular/material";
-import { DomSanitizer } from "@angular/platform-browser";
+import { ElectronService } from "../../core/services";
 
 @Component({
   selector: "app-about",
@@ -10,31 +9,13 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ["./about.component.scss"]
 })
 export class AboutComponent implements OnInit {
+  win;
+
   constructor(
     private router: Router,
     private generalservice: GeneralService,
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
-  ) {
-    this.matIconRegistry.addSvgIcon(
-      "facebook",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        "assets/icons/facebook.svg"
-      )
-    );
-    this.matIconRegistry.addSvgIcon(
-      "twitter",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        "assets/icons/twitter.svg"
-      )
-    );
-    this.matIconRegistry.addSvgIcon(
-      "linkedin",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        "assets/icons/linkedin.svg"
-      )
-    );
-  }
+    private electron: ElectronService
+  ) {}
 
   ngOnInit() {
     this.generalservice.ResizeToOriginal();
@@ -42,5 +23,24 @@ export class AboutComponent implements OnInit {
 
   backtohome() {
     this.router.navigate(["fileselect"]);
+  }
+
+  showTwitter() {
+    this.OpenURLinNewWindow("https://twitter.com/rahulhpol");
+  }
+  showLinkedin() {
+    this.OpenURLinNewWindow("https://www.linkedin.com/in/rahulpol");
+  }
+  showFacebook() {
+    this.OpenURLinNewWindow("https://www.facebook.com/rahul.h.pol");
+  }
+
+  OpenURLinNewWindow(url: string) {
+    this.win = new this.electron.remote.BrowserWindow({
+      frame: true,
+      autoHideMenuBar: true
+    });
+    this.win.maximize();
+    this.win.loadURL(url);
   }
 }
