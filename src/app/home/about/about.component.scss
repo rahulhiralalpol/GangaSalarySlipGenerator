@@ -39,16 +39,18 @@ $OliveGreen: #968c07;
         justify-content: space-between;
         align-self: end;
 
-        svg {
-          height: 35px;
-          fill: #393939;
-          transform: translate(0px, 3px);
-          transition: all 0.3s ease;
+        button {
+          transform: translate(0px, 5px);
+          svg {
+            height: 35px;
+            fill: #393939;
+            transition: all 0.3s ease;
+          }
         }
-        svg:hover {
+
+        button:hover svg {
           cursor: pointer;
-          transform: scale(1.2);
-          transform: translate(0px, 0px);
+          transform: scale(1.25);
           fill: $OliveGreen;
         }
       }

@@ -12,7 +12,8 @@ import {
   MatToolbarModule,
   MatInputModule,
   MatProgressBarModule,
-  MatRadioModule
+  MatRadioModule,
+  MatTabsModule
 } from "@angular/material";
 import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
 import { NgxExtendedPdfViewerModule } from "ngx-extended-pdf-viewer";
@@ -38,6 +39,7 @@ import { SettingsComponent } from "./settings/settings.component";
     MatInputModule,
     MatRadioModule,
     MatProgressBarModule,
+    MatTabsModule,
     NgxExtendedPdfViewerModule
   ]
 })

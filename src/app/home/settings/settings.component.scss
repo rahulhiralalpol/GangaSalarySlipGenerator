@@ -16,6 +16,8 @@ $OliveGreen: #968c07;
     main {
       justify-content: stretch;
       background: #555555;
+      display: grid;
+      grid-template-rows: auto;
     }
 
     .buttons {
