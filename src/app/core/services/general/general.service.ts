@@ -9,14 +9,11 @@ import { Subject } from "rxjs";
 })
 export class GeneralService {
   // Properties to be exported to PDF Viewer
-  public pdfFileData: string;
-  public pdfFileData1: string;
-  public pdfFileName: string;
-  public progressvalue;
-
+  pdfFileData: string;
+  pdfFileData1: string;
+  pdfFileName: string;
+  progressvalue;
   progress = new Subject<any>();
-
-  // win;
 
   constructor(private router: Router) {}
 
@@ -543,14 +540,16 @@ export class GeneralService {
           doc.setLineWidth(0.2);
           doc.line(24, 16.8 + 807.9, 41, 16.8 + 807.9);
           doc.line(554.2, 16.8 + 807.9, 571.2, 16.8 + 807.9);
-          doc.addPage();
+          if (Employees.indexOf(Employee) !== Employees.length - 1) {
+            doc.addPage();
+          }
+        } else {
+          // Add cut marks to the end of the document
+          doc.setLineWidth(0.2);
+          doc.line(24, 16.8 + ypos + 269.3, 41, 16.8 + ypos + 269.3);
+          doc.line(554.2, 16.8 + ypos + 269.3, 571.2, 16.8 + ypos + 269.3);
         }
       }
-
-      // Add cut marks to the end of the document
-      doc.setLineWidth(0.2);
-      doc.line(24, 16.8 + ypos + 269.3, 41, 16.8 + ypos + 269.3);
-      doc.line(554.2, 16.8 + ypos + 269.3, 571.2, 16.8 + ypos + 269.3);
 
       // Add document properties
       doc.setProperties({

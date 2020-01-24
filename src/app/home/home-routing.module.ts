@@ -5,7 +5,6 @@ import { FileselectComponent } from "./fileselect/fileselect.component";
 import { ViewpdfComponent } from "./viewpdf/viewpdf.component";
 import { HomeComponent } from "./home.component";
 import { AboutComponent } from "./about/about.component";
-import { SettingsComponent } from "./settings/settings.component";
 
 const routes: Routes = [
   {
@@ -24,10 +23,6 @@ const routes: Routes = [
         path: "about",
         component: AboutComponent
       },
-      {
-        path: "settings",
-        component: SettingsComponent
-      }
     ]
   }
 ];

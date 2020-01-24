@@ -1,12 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../core/services";
 import { app } from "electron";
-import {
-  Router,
-  NavigationStart,
-  NavigationEnd,
-  RouterEvent
-} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -30,9 +25,5 @@ export class HomeComponent implements OnInit {
 
   ShowAbout() {
     this.router.navigate(["about"]);
-  }
-
-  OpenSettings() {
-    this.router.navigate(["settings"]);
   }
 }
