@@ -40,7 +40,9 @@ export class GeneralService {
     if (HeaderCheck.length > 0) {
       alert(
         "Cannot find column(s) " +
-          HeaderCheck.toString().replace(",", ", ") +
+          HeaderCheck.toString()
+            .split(",")
+            .join(", ") +
           " in given excel file. Please check the headers of the given excel file and try again."
       );
     } else {
