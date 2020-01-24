@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../../core/services";
 import { GeneralService } from "../../core/services/general/general.service";
-import * as ElectronPrefs from "electron-prefs";
 import * as path from "path";
 
 @Component({
@@ -29,14 +28,14 @@ export class FileselectComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.generalservice.ResizeToOriginal();
-    this.prefs = new ElectronPrefs({
+    this.electron.ResizeToOriginal();
+    this.prefs = new this.electron.ElectronPrefs({
       fileName: "config.js"
     });
   }
 
   FileOpenDialog() {
-    const { dialog } = require("electron").remote;
+    const dialog = this.electron.remote.dialog;
 
     if (this.prefs.get("lastFileOpenedDirectory")) {
       this.defaultPath = this.prefs.get("lastFileOpenedDirectory");

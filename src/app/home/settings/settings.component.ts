@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { GeneralService } from "../../core/services";
-import * as ElectronPrefs from "electron-prefs";
+import { ElectronService } from "../../core/services";
 
 @Component({
   selector: "app-settings",
@@ -11,11 +10,11 @@ import * as ElectronPrefs from "electron-prefs";
 export class SettingsComponent implements OnInit {
   prefs;
 
-  constructor(private router: Router, private generalservice: GeneralService) {}
+  constructor(private router: Router, private electron: ElectronService) {}
 
   ngOnInit() {
-    this.generalservice.ResizeToOriginal();
-    this.prefs = new ElectronPrefs({
+    this.electron.ResizeToOriginal();
+    this.prefs = new this.electron.ElectronPrefs({
       fileName: "config.js"
     });
   }
@@ -25,7 +24,6 @@ export class SettingsComponent implements OnInit {
   }
 
   saveandbacktohome() {
-    alert(this.prefs.get("lastFileOpenedDirectory"));
     this.router.navigate(["fileselect"]);
   }
 }

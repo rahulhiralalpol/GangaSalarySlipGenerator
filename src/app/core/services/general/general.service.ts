@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import * as XLSX from "xlsx";
 import jsPDF from "jsPDF";
 import { Router } from "@angular/router";
-import { ElectronService } from "../electron/electron.service";
 import { Subject } from "rxjs";
 
 @Injectable({
@@ -11,14 +10,15 @@ import { Subject } from "rxjs";
 export class GeneralService {
   // Properties to be exported to PDF Viewer
   public pdfFileData: string;
+  public pdfFileData1: string;
   public pdfFileName: string;
   public progressvalue;
 
   progress = new Subject<any>();
 
-  win;
+  // win;
 
-  constructor(private router: Router, private electron: ElectronService) {}
+  constructor(private router: Router) {}
 
   // Function to Generate the PDF
   GeneratePDF(inputExcel) {
@@ -574,7 +574,7 @@ export class GeneralService {
       );
 
       // Navigate to the PDF viewer (viewpdf) Component
-      // this.OpenURLinNewWindow(this.pdfFileData);
+      // this.OpenURLinNewWindow(this.pdfFileData1);
       this.router.navigate(["viewpdf"]);
     }
   }
@@ -618,23 +618,5 @@ export class GeneralService {
       }
     });
     return missingitems;
-  }
-
-  // Function to Resize window to original size
-  ResizeToOriginal() {
-    this.electron.window.resizable = true;
-    this.electron.window.setSize(650, 260, true);
-    this.electron.window.center();
-    this.electron.window.resizable = false;
-    this.electron.window.maximizable = false;
-  }
-
-  OpenURLinNewWindow(url) {
-    this.win = new this.electron.remote.BrowserWindow({
-      frame: true,
-      autoHideMenuBar: true
-    });
-    this.win.maximize();
-    this.win.loadURL(url);
   }
 }

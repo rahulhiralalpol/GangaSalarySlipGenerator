@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { GeneralService } from "../../core/services";
 import { ElectronService } from "../../core/services";
 
 @Component({
@@ -11,14 +10,10 @@ import { ElectronService } from "../../core/services";
 export class AboutComponent implements OnInit {
   win;
 
-  constructor(
-    private router: Router,
-    private generalservice: GeneralService,
-    private electron: ElectronService
-  ) {}
+  constructor(private router: Router, private electron: ElectronService) {}
 
   ngOnInit() {
-    this.generalservice.ResizeToOriginal();
+    this.electron.ResizeToOriginal();
   }
 
   backtohome() {
@@ -26,21 +21,12 @@ export class AboutComponent implements OnInit {
   }
 
   showTwitter() {
-    this.OpenURLinNewWindow("https://twitter.com/rahulhpol");
+    this.electron.OpenURLinNewWindow("https://twitter.com/rahulhpol");
   }
   showLinkedin() {
-    this.OpenURLinNewWindow("https://www.linkedin.com/in/rahulpol");
+    this.electron.OpenURLinNewWindow("https://www.linkedin.com/in/rahulpol");
   }
   showFacebook() {
-    this.OpenURLinNewWindow("https://www.facebook.com/rahul.h.pol");
-  }
-
-  OpenURLinNewWindow(url: string) {
-    this.win = new this.electron.remote.BrowserWindow({
-      frame: true,
-      autoHideMenuBar: true
-    });
-    this.win.maximize();
-    this.win.loadURL(url);
+    this.electron.OpenURLinNewWindow("https://www.facebook.com/rahul.h.pol");
   }
 }

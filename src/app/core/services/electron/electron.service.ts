@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 import { ipcRenderer, webFrame, remote, BrowserWindow } from "electron";
 import * as childProcess from "child_process";
 import * as fs from "fs";
+import * as ElectronPrefs from "electron-prefs";
 
 @Injectable({
   providedIn: "root"
@@ -16,6 +17,7 @@ export class ElectronService {
   childProcess: typeof childProcess;
   window: BrowserWindow;
   fs: typeof fs;
+  ElectronPrefs: typeof ElectronPrefs;
 
   get isElectron() {
     return window && window.process && window.process.type;
@@ -31,6 +33,26 @@ export class ElectronService {
 
       this.childProcess = window.require("child_process");
       this.fs = window.require("fs");
+      this.ElectronPrefs = ElectronPrefs;
     }
+  }
+  // Function to Resize window to original size
+  ResizeToOriginal() {
+    this.window.resizable = true;
+    this.window.setSize(650, 260, true);
+    this.window.center();
+    this.window.resizable = false;
+    this.window.maximizable = false;
+  }
+
+  OpenURLinNewWindow(url) {
+    let win;
+    win = new remote.BrowserWindow({
+      frame: true,
+      autoHideMenuBar: true,
+      webPreferences: { plugins: true }
+    });
+    win.maximize();
+    win.loadURL(url);
   }
 }

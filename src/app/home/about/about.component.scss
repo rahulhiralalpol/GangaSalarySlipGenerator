@@ -26,12 +26,19 @@ $OliveGreen: #968c07;
         color: #252525;
       }
 
-      svg {
-        transform: translate(0px, -2px);
-        fill: #353535;
-        height: 55px;
-        align-self: end;
-        justify-self: left;
+      .buttonname {
+        transform: translate(0px, 19px);
+        svg {
+          fill: #353535;
+          height: 55px;
+          align-self: end;
+          justify-self: left;
+        }
+      }
+      .buttonname:hover {
+        svg {
+          fill: $OliveGreen;
+        }
       }
 
       .socialgroup {
