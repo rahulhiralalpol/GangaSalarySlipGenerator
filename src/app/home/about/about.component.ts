@@ -8,9 +8,7 @@ import { ElectronService } from "../../core/services";
   styleUrls: ["./about.component.scss"]
 })
 export class AboutComponent implements OnInit {
-  win;
-
-  constructor(private router: Router, private electron: ElectronService) {}
+    constructor(private router: Router, private electron: ElectronService) {}
 
   ngOnInit() {
     this.electron.ResizeToOriginal();

@@ -575,7 +575,6 @@ export class GeneralService {
       );
 
       // Navigate to the PDF viewer (viewpdf) Component
-      // this.OpenURLinNewWindow(this.pdfFileData1);
       this.router.navigate(["viewpdf"]);
     }
   }
