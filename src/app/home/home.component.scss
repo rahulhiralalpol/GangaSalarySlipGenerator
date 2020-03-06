@@ -38,17 +38,15 @@
       button {
         -webkit-app-region: no-drag;
 
-        mat-icon {
-          cursor: pointer;
-          font-size: 16px;
-          font-weight: 100;
-          color: #353535;
+        svg {
+          height: 16px;
+          fill: #353535;
           transition: all 0.3s ease;
         }
       }
-      button:hover mat-icon {
-        font-size: 24px;
-        color: goldenrod;
+      button:hover svg {
+        height: 24px;
+        fill: goldenrod;
       }
     }
   }

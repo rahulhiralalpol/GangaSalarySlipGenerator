@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ElectronService } from "../../core/services";
 import { GeneralService } from "../../core/services/general/general.service";
 import * as path from "path";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-fileselect",
